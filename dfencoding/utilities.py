@@ -53,8 +53,8 @@ class dfencoding:
         
         Some controls are made when any columns are mentioned in the method arguments, such as :
         - category type (category / numerical),
-        - no target encoding for a column encoded previoulsy by labelencoder,
-        - no minmaxencoding for category colums encoded with get_dummies,
+        - no target encoding for a column encoded previously by labelencoder,
+        - no minmaxencoding for category columns encoded with get_dummies,
         - ...
         
         it is possible to apply consecutively several encoding methods (categorical + minmax) but in order to avoid 
@@ -71,7 +71,7 @@ class dfencoding:
         target:     Target column name (string) in train : "target".
 
         test:       Test set Dataframe name.
-                    When test file is provided (optional but strongly recommanded for categories) 
+                    When test file is provided (optional but strongly recommended for categories) 
                     a vertical concatenated file is made (data = train + test) before encoding
                     to perform a global encoding of both train and test (accessible with .data).
 
