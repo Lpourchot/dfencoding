@@ -490,7 +490,6 @@ class dfencoding:
             self.set_label.add(c)  # Flag to enable encoding for label.
             self.set_target.add(c)  # Flag to enable encoding for target.
             self.set_dummies_encoded.discard(c)  # Flag to disable capability for decoding get_dummies.
-        self.data= self.data[self.col_names].copy()  # Back to the same columns order because undummies changed it.
 
         if (self.test is not None) == True :
             self.test = self.data.iloc[self.length_test:,:].copy()
