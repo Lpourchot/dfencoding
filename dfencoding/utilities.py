@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 class dfencoding:
-    """dfencoder enables to encode and decode Pandas DataFrames (train w/o test) 
-    with only one python class. 
+    """dfencoding enables to encode and decode Pandas DataFrames (train w/o test)
+    with only one python class instantiation. 
     The goal is to provide methods as easy as possible, with auto filling missing values capabilities.
     Encodings and decodings methods provided are: 
 
@@ -15,7 +15,7 @@ class dfencoding:
     Class
     -----
 
-        dfencoder ( train = train dataframe, 
+        dfencoding ( train = train dataframe, 
                     target = 'target'name', 
                     test = test dataframe (default = None), 
                     missing_value = Y/N (default = 'N')
@@ -27,7 +27,7 @@ class dfencoding:
         Train, test or data (train + data) encoded or decoded are retrievable by the object attribute .train or .test, .data:
 
         1 ) Object creation:
-        dfe = dfencode(train,target,test)
+        dfe = utilities.dfencoding (train,'target',test)
 
         2) Choice of encoding(s) method(s):
         dfe.encode()
@@ -39,21 +39,22 @@ class dfencoding:
         both files concatenated_encoded = dfe.data
 
         dealing with Missing values (missing_value = Y):
-
          - Replace categories only in train by mode()
          - Replace categories only in test by mode()
          - Replace others nan by mode()
 
         ****************************** IMPORTANT ************************************
-        WHEN USING SPECIFIC COLUMNS LIST (IN ARGUMENTS OF A METHOD) NO CONTROLS ARE MADE. 
+        WHEN USING SPECIFIC COLUMNS LIST (OPTIONAL IN ARGUMENTS OF A METHOD EXCEPT FOR 
+        UNDUMMIES) NO CONTROLS ARE MADE. 
         THE USER IS AUTONOMUS TO DETERMINE IF IT IS SMART OR NOT TO ENCODE AND USE SEVERAL
         METHODS (FOR EXAMPLE). IN CERTAIN CASE, NO DECODING COULD BE POSSIBLE.
-        UNDUMIES IS APPLIED FOR ALL COLUMNS GET_DUMMIED (no columns selection for undummies)
+        UNDUMIES IS ONLY POSSIBLE FOR ALL COLUMNS ENCODED WITH GET_DUMMIED 
+        (no columns selection for undummies).
         
-        Some controls are made if no columns are mentioned in the method arguments, such as :
+        Some controls are made when any columns are mentioned in the method arguments, such as :
         - category type (category / numerical),
         - no target encoding for a column encoded previoulsy by labelencoder,
-        - no minmaxencoding for initial category colums after get_dummies,
+        - no minmaxencoding for category colums encoded with get_dummies,
         - ...
         
         it is possible to apply consecutively several encoding methods (categorical + minmax) but in order to avoid 
@@ -131,7 +132,7 @@ class dfencoding:
             
             train = pd.read('train.csv')
             test = pd.read('test.csv')
-            dfe = utilities.dfencoding(train, 'target', test, 'Y')
+            dfe = utilities.dfencoding(train, 'target', test, missing_value ='Y')
             dfe.encode()
             dfe.decode()
             train_encoded = dfe.train
@@ -176,7 +177,7 @@ class dfencoding:
         self.set_minmax_encoded = set()  # set to check decoding capabilities
         
         if (self.verbose == 1) == True :
-            intro = "   help(dfencoder) to get information on methods and parameters)   "
+            intro = "   help(dfencoding) to get information on methods and parameters)   "
             analyse = "  Analyse and filling the missing values   "
             print (intro.center(60, '-'))
             print ()
@@ -249,7 +250,7 @@ class dfencoding:
     def printing(self):
         end_train = "TRAIN"
         end_test = "TEST"
-        end = " to retreive train or test, (if for example) you instantied dfe = dfencoder() => train = dfe.train or test = dfe.test "
+        end = " to retreive train or test, if you instantied dfe = utilities.dfencoding(train,'target') => train = dfe.train or test = dfe.test "
         print(end.center(60, '-'))
         print()
         print(end_train.center(60, '-'))
