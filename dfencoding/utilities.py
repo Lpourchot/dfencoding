@@ -125,9 +125,13 @@ class dfencoding:
 
         Examples 
         --------
+            pip install git+https://github.com/Lpourchot/dfencoding.git
+            
+            from dfencoding import utilities
+            
             train = pd.read('train.csv')
             test = pd.read('test.csv')
-            dfe = dfencoder(train, 'target', test, 'Y')
+            dfe = utilities.dfencoding(train, 'target', test, 'Y')
             dfe.encode()
             dfe.decode()
             train_encoded = dfe.train
