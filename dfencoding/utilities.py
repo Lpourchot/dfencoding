@@ -77,7 +77,7 @@ class dfencoding:
 
         Missing_value:
                     If missing_value = 'Y' (Default ='Y' Else 'N') the missing values are filled with
-                    mode() method and the discrepencies between train and test categories are analysed 
+                    mode() method and the discrepancies between train and test categories are analysed 
                     and fixed.
 
         verbose:    Enable messages, other values disable messages (default value = 1)
@@ -98,7 +98,7 @@ class dfencoding:
     -------
         encode(dataframe) / decode(dataframe) :
         - The method encode performs a label encoding of all categorical columns
-          and a MinMax encoding for all numerical columms.
+          and a MinMax encoding for all numerical columns.
         - The previous columns label encoded are included in the MinMax encoding.
 
         minmaxencode(col=[optional list of columns]) / minmaxdecode(col=[optional list of columns]) :
