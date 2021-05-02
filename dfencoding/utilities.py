@@ -18,10 +18,10 @@ class dfencoding:
         dfencoding ( train = train dataframe, 
                     target = 'target'name', 
                     test = test dataframe (default = None), 
-                    missing_value = Y/N (default = 'N')
+                    missing_value = Y/N (default = 'Y')
                     verbose = (default value = 1),
                     cat_limit = (default value = 100)
-                    dummies_limit = (default value = 50)
+                    dummies_limit = (default value = 100)
                    )
 
         Train, test or data (train + data) encoded or decoded are retrievable by the object attribute .train or .test, .data:
