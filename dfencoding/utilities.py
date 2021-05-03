@@ -288,7 +288,7 @@ class dfencoding:
             self.set_minmax.discard(c)
 
         if (self.test is not None) == True :
-            self.test = self.data.iloc[self.length_test:,:].copy()
+            self.test = self.data.iloc[self.length_train:,:].copy()
             self.test.drop(self.target, axis = 1, inplace = True)
             self.train = self.data.iloc[:self.length_train,:]
         else :
@@ -312,7 +312,7 @@ class dfencoding:
         self.set_minmax_encoded.difference_update(self.col)  # Flag to disable capability for decoding minmaxdecode.
         
         if (self.test is not None) == True :
-            self.test = self.data.iloc[self.length_test:,:].copy()
+            self.test = self.data.iloc[self.length_train:,:].copy()
             self.test.drop(self.target, axis = 1, inplace = True)
             self.train = self.data.iloc[:self.length_train,:]
         else :
@@ -349,7 +349,7 @@ class dfencoding:
                     print()
 
         if (self.test is not None) == True :
-            self.test = self.data.iloc[self.length_test:,:].copy()
+            self.test = self.data.iloc[self.length_train:,:].copy()
             self.test.drop(self.target, axis = 1, inplace = True)
             self.train = self.data.iloc[:self.length_train,:]
         else :
@@ -368,7 +368,7 @@ class dfencoding:
             self.set_label_encoded.discard(c)  # Flag to disable capability for decoding labeldecode
         
         if (self.test is not None) == True :
-            self.test = self.data.iloc[self.length_test:,:].copy()
+            self.test = self.data.iloc[self.length_train:,:].copy()
             self.test.drop(self.target, axis = 1, inplace = True)
             self.train = self.data.iloc[:self.length_train,:]
         else :
@@ -458,7 +458,7 @@ class dfencoding:
                     print()
                     
         if (self.test is not None) == True :
-            self.test = self.data.iloc[self.length_test:,:].copy()
+            self.test = self.data.iloc[self.length_train:,:].copy()
             self.test.drop(self.target, axis = 1, inplace = True)
             self.train = self.data.iloc[:self.length_train,:]
         else:
@@ -492,7 +492,7 @@ class dfencoding:
             self.set_dummies_encoded.discard(c)  # Flag to disable capability for decoding get_dummies.
 
         if (self.test is not None) == True :
-            self.test = self.data.iloc[self.length_test:,:].copy()
+            self.test = self.data.iloc[self.length_train:,:].copy()
             self.test.drop(self.target, axis = 1, inplace = True)
             self.train = self.data.iloc[:self.length_train,:]
         else:
