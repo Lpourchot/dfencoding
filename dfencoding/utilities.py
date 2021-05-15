@@ -335,7 +335,7 @@ class dfencoding:
                 num = []
                 label = []   
                 for i in range(0, len(self.unik)):
-                               num.append(i)
+                               num.append(i+1)
                                label.append(self.unik[i])
                 name = self.name_train + c  # Concatenation of dataframe's name and column for the mapping table'name.         
                 self.l[name] = dict(zip(label,range(0,self.length_data)))    # Mapping dict for encoding.
